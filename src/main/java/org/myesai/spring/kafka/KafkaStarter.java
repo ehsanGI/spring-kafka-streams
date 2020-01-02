@@ -9,14 +9,17 @@ import org.springframework.stereotype.Component;
 public class KafkaStarter {
 
     private final KafkaConfig kafkaConfig;
-    private final StreamProcessor streamProcessor;
+    private StreamProcessor streamProcessor;
 
-    @Autowired(required = false)
-    public KafkaStarter(KafkaConfig kafkaConfig, StreamProcessor streamProcessor) {
+    @Autowired
+    public KafkaStarter(KafkaConfig kafkaConfig) {
         this.kafkaConfig = kafkaConfig;
-        this.streamProcessor = streamProcessor;
     }
 
+    @Autowired(required = false)
+    public void setStreamProcessor(StreamProcessor streamProcessor) {
+        this.streamProcessor = streamProcessor;
+    }
     public void startKafka() {
         Topology topology = new KafkaBuilder()
                 .prepareTopology(kafkaConfig.inputTopic(), kafkaConfig.outputTopic(), streamProcessor);
