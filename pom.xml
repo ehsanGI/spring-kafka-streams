@@ -3,10 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.myesai</groupId>
     <artifactId>spring-kafka-streams</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>Maven core</name>
+    <description>App description goes here</description>
+    <url>http://maven.apache.org</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <properties>
         <kafka.version>2.4.0</kafka.version>
@@ -26,6 +38,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>2.4.0</version>
         </dependency>
     </dependencies>
 
