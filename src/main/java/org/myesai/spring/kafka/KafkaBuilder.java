@@ -15,7 +15,10 @@ public class KafkaBuilder {
             PipeProcessor pipeProcessor = (PipeProcessor) streamProcessor;
             pipeProcessor.process(bindInput(builder, input))
                     .to(output, Produced.with(Serdes.String(), Serdes.String()));
-        } else {
+        } else if((streamProcessor instanceof StreamToKTableProcessor)) {
+            StreamToKTableProcessor streamToKTableProcessor = (StreamToKTableProcessor) streamProcessor;
+            streamToKTableProcessor.process(bindInput(builder, input));
+        }else {
             SinkProcessor pipeProcessor = (SinkProcessor) streamProcessor;
             pipeProcessor.process(bindInput(builder, input));
         }
