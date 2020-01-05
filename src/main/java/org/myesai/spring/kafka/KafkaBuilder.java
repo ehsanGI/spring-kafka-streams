@@ -18,7 +18,7 @@ public class KafkaBuilder {
         } else if((streamProcessor instanceof StreamToKTableProcessor)) {
             StreamToKTableProcessor streamToKTableProcessor = (StreamToKTableProcessor) streamProcessor;
             streamToKTableProcessor.process(bindInput(builder, input));
-        }else {
+        }else if (streamProcessor instanceof SinkProcessor){
             SinkProcessor pipeProcessor = (SinkProcessor) streamProcessor;
             pipeProcessor.process(bindInput(builder, input));
         }

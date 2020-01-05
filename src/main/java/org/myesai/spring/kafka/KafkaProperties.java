@@ -8,7 +8,6 @@ public class KafkaProperties {
 
     final String applicationId;
     final String broker;
-    final String inputTopic;
     final String outputTopic;
 
     public KafkaProperties(@Value("${kafka.applicationId}") String applicationId,
@@ -18,7 +17,6 @@ public class KafkaProperties {
 
         this.applicationId = applicationId;
         this.broker = broker;
-        this.inputTopic = inputTopic;
         this.outputTopic = outputTopic;
     }
 }
