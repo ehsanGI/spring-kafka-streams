@@ -9,4 +9,6 @@ public class Consumer<K,V> extends KafkaConsumer<K,V> {
     public Consumer(KafkaConfig kafkaConfig) {
         super(kafkaConfig.getKafkaPros());
     }
+
+
 }
